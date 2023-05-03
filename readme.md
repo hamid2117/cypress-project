@@ -1,18 +1,18 @@
 ## Client
 
-- install dependencies
+- install dependencies :
   npm i
 
-- start project
+- start project :
   npm start
 
-- start Testing
+- start Testing :
   npx cypress open
 
 ## Server
 
-- install dependencies
+- install dependencies :
   npm i
 
-- start project
+- start project :
   node index
