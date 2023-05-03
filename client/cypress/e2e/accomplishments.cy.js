@@ -33,4 +33,19 @@ describe('Accomplishment dashboard', () => {
     cy.contains('Back').click()
     cy.get("[placeholder='Title']").should('be.visible')
   })
+
+  it('should display your content is not appropriate', () => {
+    cy.intercept('http://localhost:4000', (req) => {
+      req.reply((res) => {
+        res.send({
+          msg: 'Your content is not appropriate',
+        })
+      })
+    })
+
+    cy.get("[placeholder='Title']").type('simple Editor')
+    cy.get("[placeholder='My accomplishment...']").type('using MS Word')
+    cy.get("[type='checkbox']").click()
+    cy.get('button').click()
+  })
 })

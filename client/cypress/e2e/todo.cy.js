@@ -10,7 +10,7 @@ describe('Todo List', () => {
     cy.contains('Add a new Todo').should('be.visible')
   })
 
-  it('It have to display modal when you click save changes without text', () => {
+  it('should return without adding todo if text not type.', () => {
     cy.contains('button', 'Add').click()
     cy.contains('Save Changes').click()
     cy.contains('Add a new Todo').should('be.visible')
