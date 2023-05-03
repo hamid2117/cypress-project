@@ -23,14 +23,14 @@ function SideNav() {
       >
         Accomplishments
       </Link>
-      <Link
+      {/*<Link
         to='/rewards'
         className={`SideNav-list-items ${
           slug.pathname === '/rewards' && 'SideNav-list-items--active'
         }`}
       >
         Rewards
-      </Link>
+      </Link>*/}
     </div>
   )
 }
