@@ -5,11 +5,18 @@ describe('Todo List', () => {
     cy.visit('/todos')
   })
 
-  it('It have to display modal when add button is clicked', () => {
+  it('It should display modal when add button is clicked', () => {
     cy.contains('button', 'Add').click()
     cy.contains('Add a new Todo').should('be.visible')
   })
 
+  it('It have to display modal when you click save changes without text', () => {
+    cy.contains('button', 'Add').click()
+    cy.contains('Save Changes').click()
+    cy.contains('Add a new Todo').should('be.visible')
+    cy.get('.btn-secondary').click()
+    cy.log('Model close without adding new todo')
+  })
   it('It have display todo card when new todo is added', () => {
     cy.contains('button', 'Add').click()
     cy.get("input[placeholder='Todo']").type('Make plan for a day')
@@ -19,7 +26,7 @@ describe('Todo List', () => {
       .and('have.class', 'TodoCard__todo-container')
   })
 
-  it('should toggle icon when todo card is clicked', () => {
+  it('it should toggle icon when todo card is clicked', () => {
     cy.contains('button', 'Add').click()
     cy.get("input[placeholder='Todo']").type('Make plan for a day')
     cy.contains('Save Changes').click()
